@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+    <section class="singup">
+        <div class="container">
+            <div class="contact">
+                <h4>Student <Span>Form</Span></h4>
+                <form id="student-form" class="student-form">
+                    <div class="form-group">   
+                        <div class="row"> 
+                            <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Roll Number -->
+                            <label for="RollNo">Student RollNo::</label>
+                            <input type="text" class="form-control" id="rollNo" name="RollNo"  placeholder=" Roll Number (YY0001 - 240001)" disabled     >
+                            <span id="roll-error" class="error"></span>
+                        </div>
+                    </div>
+                        <!-- Student Name -->
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="sname">Student Name:</label>
+                            <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter Full Name">
+                            <span id="name-error" class="error"></span>
+                        </div>
+                        </div>
+                    </div>
+                        <!-- radio Group -->
+                         <!-- radio Group -->
+                         <div class="row"> 
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <select id="gender" class="form-control"name="gender">
+                                    <option value="select">select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="transgender">Transgender</option>
+                                </select>
+                                <span id="gender-error" class="error"></span>
+                            
+                            </div>
+                            </div>
+                           
+                        <!-- Student DoB -->
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="dob">Student DoB:</label>
+                            <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter Your DoB">
+                            <span id="dob-error" class="error"></span>
+                        </div>
+                        </div>
+                    </div>
+                        <!-- Student Email -->
+                        <div class="row"> 
+                            <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Student Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+                            <span id="email-error" class="error"></span>
+                        </div>
+                        </div>
+                        <!-- Student Email -->
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address">Student Address:</label>
+                            <textarea id="address" rows="4" cols="10" name="address" class="form-control" placeholder="Enter Student Address"></textarea>
+                            <span id="address-error" class="error"></span>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- Math Marks -->
+                        <div class="row"> 
+                            <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="math">Math Marks:</label>
+                            <input type="number" class="form-control" id="math" name="math" placeholder="Math Marks" min="0" max="100">
+                            <span id="math-error" class="error"></span>
+                        </div>
+                        </div>
+                        <!-- English Marks -->
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="english">English Marks:</label>
+                            <input type="number" class="form-control" id="english" name="english" placeholder="English Marks" min="0" max="100">
+                            <span id="english-error" class="error"></span>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- Hindi Marks -->
+                        <div class="row"> 
+                            <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Hindi Marks:</label>
+                            <input type="number" class="form-control" id="hindi" name="hindi" placeholder="Hindi Marks" min="0" max="100">
+                            <span id="hindi-error" class="error"></span>
+                        </div>
+                        </div>
+                        <!-- Punjabi Marks -->
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="punjabi">Punjabi Marks:</label>
+                            <input type="number" class="form-control" id="punjabi" name="punjabi" placeholder="Punjabi Marks" min="0" max="100">
+                            <span id="punjabi-error" class="error"></span>
+                        </div>
+                        </div>
+                        <!-- buttons -->
+                        <div class=".btn-group-justified text-center">
+                            <button type="button" id="add-more" class="text-center">Add</button>
+                            <button type="button" id="edit-student" class="text-center" data-toggle="modal" data-target="#editModal">Edit</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Button Start -->
+                <h2>Result</h2>
+                <!-- Button End -->
+                <div class="table-responsive">
+                    <table id="student-table" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Student RollNo</th>
+                                <th>Student Name</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Math Marks</th>
+                                <th>English Marks</th>
+                                <th>Hindi Marks</th>
+                                <th>Punjabi Marks</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-class"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Student</h5>
+                    <button type="button" class="close" id="cross" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" >&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="editRollNo">Enter Roll Number:</label>
+                        <input type="text" class="form-control" id="editRollNo" placeholder="Enter Roll Number">
+                  
+                    </div>
+                    <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+                    <div id="studentDetails"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="updateButton" disabled>Update</button>
+                    <button type="button" class="btn btn-danger" id="deleteButton" disabled>Delete</button></div>
+                  </div>
+              </div>
+          </div>
+      
+         
+          <script src="js/form.js"></script>
+      
+       
+        
+      </body>
+      </html>
